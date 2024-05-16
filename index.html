@@ -1,0 +1,421 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<TITLE>
+		Huduma Kenya Appointment		</TITLE>
+		<link rel="shortcut icon" href="images/logo2.jpg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" media="all" href="css/style.css" title="win2k-cold-1" /> 
+		<link rel="stylesheet" type="text/css" media="all" href="css/style1.css" title="win2k-cold-1" /> 
+		<link rel="stylesheet" type="text/css" media="all" href="css/bootstrap.min.css" title="win2k-cold-1" /> 
+		<link rel="stylesheet" type="text/css" media="all" href="css/main.min.css" title="win2k-cold-1" /> 
+		<link rel="stylesheet" type="text/css" media="all" href="css/sidebar.css" title="win2k-cold-1" />
+					<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">		<script>
+			function openCity(evt, cityName) {
+				var i, tabcontent, tablinks;
+				tabcontent = document.getElementsByClassName("tabcontent");
+
+				for (i = 0; i < tabcontent.length; i++) {
+					tabcontent[i].style.display = "none";
+				}
+
+				tablinks = document.getElementsByClassName("tablinks");
+
+				for (i = 0; i < tablinks.length; i++) {
+					tablinks[i].className = tablinks[i].className.replace(" active", "");
+				}
+
+				document.getElementById(cityName).style.display = "block";
+				evt.currentTarget.className += " active";
+			}
+		</script>
+		<script>
+			function openNav() {
+				document.getElementById("mySidenav").style.width = "200px";
+				document.getElementById("main").style.marginLeft = "200px";
+				document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+			}
+
+			function closeNav() {
+				document.getElementById("mySidenav").style.width = "0";
+				document.getElementById("main").style.marginLeft= "0";
+				document.body.style.backgroundColor = "white";
+			}
+		</script>
+		<!-- calendar stylesheet -->
+		<link rel="stylesheet" type="text/css" media="all" href="calendar/calendar-win2k-cold-1.css" title="win2k-cold-1" />
+		<!-- calendar stylesheet -->
+		<link rel="stylesheet" type="text/css" media="all" href="calendar/skins/aqua/theme.css" title="win2k-cold-1" /> 
+		<!-- main calendar program -->
+		<script type="text/javascript" src="calendar/calendar.js"></script>
+		<!-- language for the calendar -->
+		<script type="text/javascript" src="calendar/lang/calendar-en.js"></script>
+		<!-- the following script defines the Calendar.setup helper function, which makes adding a calendar a matter of 1 or 2 lines of code. -->
+		<script type="text/javascript" src="calendar/calendar-setup.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">		
+		<script type="text/javascript">
+			function logout(uID){
+				if (confirm("Do you still want to log out?")) {
+					window.open('validatelogout.php?uid='+uID,'_self');
+				}
+				exit;
+			}
+		</script>
+	</head>	
+	<style>
+		.alert {
+			padding: 10px;
+			background-color: #f44336;
+			color: white;
+			opacity: 1;
+			transition: opacity 0.6s;
+			margin-bottom: 15px;
+		}
+
+		.alert.success {background-color: #04AA6D;}
+		.alert.info {background-color: #2196F3;}
+		.alert.warning {background-color: #ff9800;}
+
+		.closenoticebtn {
+			margin-left: 15px;
+			color: white;
+			font-weight: bold;
+			float: right;
+			font-size: 22px;
+			line-height: 20px;
+			cursor: pointer;
+			transition: 0.3s;
+		}
+
+		.closenoticebtn:hover {
+			color: black;
+		}
+		
+		.star {
+			font-size: 14px;
+			color: green; /* Color of the filled star */
+		}
+
+		.half-star {
+			font-size: 24px;
+			color: green; /* Color of the filled star */
+			width: 50%; /* Width to display half of the star */
+		}
+	</style>
+	<script language="javascript">
+		function hidenotice(nid){
+			var res = nid.split(":");
+			var uid = res[0];
+			var sid = res[1];
+			var action = res[2];
+			document.getElementById("closenoticebtn").style.display = "none"; 
+			window.open('noticeread.php?uid='+uid+'&sid='+sid+'&action='+action+'','_self');
+		}
+	</script>	
+			<script>
+		// Set the date of your anniversary (year, month - 1, day)
+		const anniversaryDate = new Date("2023-11-07");
+
+		// Function to update the countdown
+		/*function updateCountdown() {
+		  const currentDate = new Date();
+		  const timeRemaining = anniversaryDate - currentDate;
+		  
+		  if (timeRemaining <= 0 && timeRemaining > -86400000) {
+			document.getElementById("countdown").innerHTML = "<font color='red'><b>Celebrating Huduma @10! Happy Anniversary!</b></font>";
+		  } else if (timeRemaining < -86400000) {
+			document.getElementById("countdown").innerHTML = "&nbsp;";
+		  } else {
+			const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+			const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+			const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+			document.getElementById("countdown").innerHTML = `<font color='red'><b>${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds to Huduma 10 Year Anniversary</b></font>`;
+		  }
+		}
+
+		// Update the countdown every second
+		setInterval(updateCountdown, 1000);
+
+		// Initial update
+		updateCountdown();*/
+	  </script>	<body style="background-image: url('images/bg-pattern.png');">
+
+ 
+		<div style="height: 0px;"></div>
+		<script>
+	function switchagency(uid, mdaid){
+		window.open('switchagency.php?uid='+uid+'&mdaid='+mdaid+'','_self');
+	}
+	
+	function mashinanimode(uid)
+	{
+		if (confirm("You are about to switch to HUDUMA MASHINANI MODE. Do you still want to proceed?")) {
+			window.open('manageappointment.php?uid='+uid+'&action=mashinani','_self');
+		}
+		exit;
+	}
+</script>
+<center>
+<div class="container2" style="padding:0px; background-color:#ffffff; text-color:#ffffff;">
+	<div class="content2" style="float: left; padding-left: 70px; border: 0px solid black; width:100%; color: #000000;">
+		<div style="float: left;">
+			<i class="material-icons" style="font-size: 15px; cursor: pointer; color: #333;" onclick="javascript:void(0);">call</i>&nbsp;&nbsp;&nbsp;+254 (020) 6900020
+		</div>
+		<div id="countdown" style="float: left; width: 67vw;" ></div>
+		<div style="float: left; padding-right:70px;">
+			<b>
+				<a href="https://twitter.com/HudumaKenya" target="_blank"><svg width="17" height="17" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="twitter"><path d="M19,4.74 C18.339,5.029 17.626,5.229 16.881,5.32 C17.644,4.86 18.227,4.139 18.503,3.28 C17.79,3.7 17.001,4.009 16.159,4.17 C15.485,3.45 14.526,3 13.464,3 C11.423,3 9.771,4.66 9.771,6.7 C9.771,6.99 9.804,7.269 9.868,7.539 C6.795,7.38 4.076,5.919 2.254,3.679 C1.936,4.219 1.754,4.86 1.754,5.539 C1.754,6.82 2.405,7.95 3.397,8.61 C2.79,8.589 2.22,8.429 1.723,8.149 L1.723,8.189 C1.723,9.978 2.997,11.478 4.686,11.82 C4.376,11.899 4.049,11.939 3.713,11.939 C3.475,11.939 3.245,11.919 3.018,11.88 C3.49,13.349 4.852,14.419 6.469,14.449 C5.205,15.429 3.612,16.019 1.882,16.019 C1.583,16.019 1.29,16.009 1,15.969 C2.635,17.019 4.576,17.629 6.662,17.629 C13.454,17.629 17.17,12 17.17,7.129 C17.17,6.969 17.166,6.809 17.157,6.649 C17.879,6.129 18.504,5.478 19,4.74"></path></svg></a>
+				<a href="https://www.facebook.com/HudumaCentre" target="_blank"><svg width="15" height="15" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="facebook"><path d="M11,10h2.6l0.4-3H11V5.3c0-0.9,0.2-1.5,1.5-1.5H14V1.1c-0.3,0-1-0.1-2.1-0.1C9.6,1,8,2.4,8,5v2H5.5v3H8v8h3V10z"></path></svg></a>
+				<a href="https://www.instagram.com/huduma_kenya/" target="_blank"><svg width="15" height="15" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="instagram"><path d="M13.55,1H6.46C3.45,1,1,3.44,1,6.44v7.12c0,3,2.45,5.44,5.46,5.44h7.08c3.02,0,5.46-2.44,5.46-5.44V6.44 C19.01,3.44,16.56,1,13.55,1z M17.5,14c0,1.93-1.57,3.5-3.5,3.5H6c-1.93,0-3.5-1.57-3.5-3.5V6c0-1.93,1.57-3.5,3.5-3.5h8 c1.93,0,3.5,1.57,3.5,3.5V14z"></path><circle cx="14.87" cy="5.26" r="1.09"></circle><path d="M10.03,5.45c-2.55,0-4.63,2.06-4.63,4.6c0,2.55,2.07,4.61,4.63,4.61c2.56,0,4.63-2.061,4.63-4.61 C14.65,7.51,12.58,5.45,10.03,5.45L10.03,5.45L10.03,5.45z M10.08,13c-1.66,0-3-1.34-3-2.99c0-1.65,1.34-2.99,3-2.99s3,1.34,3,2.99 C13.08,11.66,11.74,13,10.08,13L10.08,13L10.08,13z"></path></svg></a>
+			</b>
+		</div>
+	</div>
+</div>
+
+<div class="row" style="font-size:12px; font-weight:bold; color: #BCE954; border-width: 0px; border-color: #000000; border-style: solid; width: 100%; background-color: #ffffff; background-image: url('images/bg-pattern.png');">
+	<div class="column1" style="border: 0px solid black; color: #ffffff; padding-bottom: 0px; background-image: url('images/bg-pattern.png'); vertical-align: top; text-align: center;">
+		<div style="float:left; padding-left:50px; border: 0px solid black;">
+			<img src="images/logo2.jpg" height="180px" width="180px" style="border-radius: 10px;">
+		</div>
+		<div style="float:left; width: auto; border: 0px solid black; padding-left: 20px; margin-top: 40px;">
+			<p style="font-size: calc(1em + 2vw); width:55vw; color: #ffffff; text-align: left;font-weight: 900; font-family: 'Raleway', sans-serif !important;"><b>SERVICE BY APPOINTMENT</b></p>
+		</div>
+		<div style="float:right; padding-right:50px; border: 0px solid black; text-align:right;">
+			<li class="last">
+				<a href="javascript:;" onclick="logout(300314);">						<img src="images/avatar.f.png" height="70px" width="70px" style="border-radius: 10px;" title="Click to logout" >				</a>
+			</li>
+			<div style="word-wrap: break-word;">Logged In Time:<br>Thursday, 16th May 2024 08:25:19 hrs</div>
+		  	                <a href="javascript:void(0);" style="color:#ffffff;" onclick="mashinanimode(300314)"><u>Mashinani</u></a>    	<a href="javascript:;" onclick="logout(300314);" style="color:#ffffff;"><u><b>Logout</b></u></a>
+		</div>
+	</div>
+</div>
+<link rel="stylesheet" type="text/css" media="all" href="css/modal.css" title="win2k-cold-1" />
+<!-- The Modal -->
+<div id="myModal2" class="modal" hidden style="width: 800px">
+	<!-- Modal content -->
+	<div class="modal-content">
+		<form>
+			<input type="hidden" name="frmissue" value="newissue" />
+			<input type="hidden" name="uid" value="300314" />
+			<input type="hidden" name="username" value="BANCY.NGATIA" />
+			<input type="hidden" name="mystationid" value="49" />
+			<input type="hidden" name="action" value="" />
+			<div class="modal-body">
+				<div class="modal-header" colspan="10" style="background:linear-gradient(#ec1c24,#bf1e2e);">
+					<span class="close" onclick="modal.style.display = 'none';">&times;</span>
+					<h2>Report a System/Service Issue</h2>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="column1">
+						<div class="form-group">
+							<select id='selissue' name='selissue' class='form-control'>
+								<option value="">---select issue---</option>
+								<option value="1">BackOffice - System Downtime</option>
+								<option value="2">BackOffice - Degraded System Performance</option>
+								<option value="3">BackOffice - VPN Not Connecting</option>
+								<option value="4">SBA - Slow Response</option>
+								<option value="5">VDI - Intermittent Connection</option>
+								<option value="6">VDI - No Available Pool</option>
+								<option value="7">Internet - No Connectivity</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="column1">
+						<div class="form-group">							<select class="form-control" name="selmdacode" id="selmdacode">
+								<option value="">---select MDA counter---</option>
+								<option value='108|KBC'>108|KBC - KBC/PWANI FM</option><option value='AGPO'>AGPO - Access to Government Procurement Opportunities</option><option value='BARINGOCOUNTY'>BARINGOCOUNTY - BARINGO County Government</option><option value='BOMAYANGU'>BOMAYANGU - Affordable Housing Programme</option><option value='BOMETCOUNTY'>BOMETCOUNTY - BOMET County Government</option><option value='BRS'>BRS - Business Name Search and Registration</option><option value='BUNGOMACOUNTY'>BUNGOMACOUNTY - BUNGOMA County Government</option><option value='BUSIACOUNTY'>BUSIACOUNTY - BUSIA County Government</option><option value='CMA'>CMA - Capital Markets Authority</option><option value='CRB'>CRB - CRB - KENYA</option><option value='CRD'>CRD - Civil Registration Department</option><option value='CYBER'>CYBER - Huduma Cyber Cafe</option><option value='CYBER CAFE'>CYBER CAFE - Huduma Cyber Cafe</option><option value='DCI'>DCI - Directorate of Criminal Investigations</option><option value='EACC'>EACC - Ethics and Anti-Corruption Commission</option><option value='ELGEYOMARAKWETCOUNTY'>ELGEYOMARAKWETCOUNTY - ELGEYO MARAKWET County Government</option><option value='EMBUCOUNTY'>EMBUCOUNTY - EMBU County Government</option><option value='GAAFS'>GAAFS - Gender and Affirmative Action Funds</option><option value='GARISSACOUNTY'>GARISSACOUNTY - GARISSA County Government</option><option value='GENDER'>GENDER - National Gender & Equality Commission</option><option value='HELB'>HELB - Higher Education Loans Board</option><option value='HOMABAYCOUNTY'>HOMABAYCOUNTY - HOMABAY County Government</option><option value='HUDUMA NAMBA'>HUDUMA NAMBA - Huduma Namba</option><option value='IEBC'>IEBC - Independent Electoral and Boundaries Commission</option><option value='IMMIGRATION'>IMMIGRATION - State Department for Immigration, Border Control and Registration of Persons</option><option value='INFODESK'>INFODESK - Huduma Kenya Information Desk</option><option value='ISIOLOCOUNTY'>ISIOLOCOUNTY - ISIOLO County Government</option><option value='JUDICIARY'>JUDICIARY - Judiciary of Kenya</option><option value='KAJIADOCOUNTY'>KAJIADOCOUNTY - KAJIADO County Government</option><option value='KAKAMEGACOUNTY'>KAKAMEGACOUNTY - KAKAMEGA County Government</option><option value='KASNEB'>KASNEB - Kenya Accountants and Secretaries National Examinations Board</option><option value='KENYA-POLICE'>KENYA-POLICE - Kenya Police Service</option><option value='KENYA-POWER'>KENYA-POWER - Kenya Power</option><option value='KEPHIS'>KEPHIS - Kenya Plant Health Inspectorate Service</option><option value='KERICHOCOUNTY'>KERICHOCOUNTY - KERICHO County Government</option><option value='KFCB'>KFCB - Kenya Film Classification Board</option><option value='KIAMBUCOUNTY'>KIAMBUCOUNTY - KIAMBU County Government</option><option value='KILIFICOUNTY'>KILIFICOUNTY - KILIFI County Government</option><option value='KIRINYAGACOUNTY'>KIRINYAGACOUNTY - KIRINYAGA County Government</option><option value='KISIICOUNTY'>KISIICOUNTY - KISII County Government</option><option value='KISUMUCOUNTY'>KISUMUCOUNTY - KISUMU County Government</option><option value='KITALECOUNTY'>KITALECOUNTY - KITALE County Government</option><option value='KITUICOUNTY'>KITUICOUNTY - KITUI County Government</option><option value='KNCCI'>KNCCI - Kenya National Chamber of Commerce and Industry</option><option value='KNCHR'>KNCHR - Kenya National Commission on Human Rights</option><option value='KRA'>KRA - Kenya Revenue Authority</option><option value='KUCCPS'>KUCCPS - Kenya Universities and Colleges Central Placement Service</option><option value='KWALECOUNTY'>KWALECOUNTY - KWALE County Government</option><option value='LABOUR'>LABOUR - The State Department for Labour</option><option value='LAIKIPIACOUNTY'>LAIKIPIACOUNTY - LAIKIPIA County Government</option><option value='LAMUCOUNTY'>LAMUCOUNTY - LAMU County Government</option><option value='LANDS'>LANDS - Ministry of Lands</option><option value='MACHAKOSCOUNTY'>MACHAKOSCOUNTY - MACHAKOS County Government</option><option value='MAKUENICOUNTY'>MAKUENICOUNTY - MAKUENI County Government</option><option value='MANDERACOUNTY'>MANDERACOUNTY - MANDERA County Government</option><option value='MANDWASCO'>MANDWASCO - Mandera Water and Sewerage Company</option><option value='MARSABITCOUNTY'>MARSABITCOUNTY - MARSABIT County Government</option><option value='MERUCOUNTY'>MERUCOUNTY - MERU County Government</option><option value='METROPOL'>METROPOL - Metropol CRB</option><option value='MIGORICOUNTY'>MIGORICOUNTY - MIGORI County Government</option><option value='MOE'>MOE - Ministry of Education</option><option value='MOH'>MOH - Ministry of Health</option><option value='MOMBASACOUNTY'>MOMBASACOUNTY - MOMBASA County Government</option><option value='MURANGACOUNTY'>MURANGACOUNTY - MURANGA County Government</option><option value='NACC'>NACC - National AIDS Control Council</option><option value='NAIROBICOUNTY'>NAIROBICOUNTY - NAIROBI County Government</option><option value='NAKURUCOUNTY'>NAKURUCOUNTY - NAKURU County Government</option><option value='NANDICOUNTY'>NANDICOUNTY - NANDI County Government</option><option value='NAROKCOUNTY'>NAROKCOUNTY - NAROK County Government</option><option value='NCA'>NCA - National Construction Authority</option><option value='NCIC'>NCIC - National Cohesion and Integration Commission</option><option value='NG-CDF'>NG-CDF - National Government Constituency Development Fund</option><option value='NHIF'>NHIF - National Hospital Insurance Fund</option><option value='NRB'>NRB - National Registration Bureau</option><option value='NSSF'>NSSF - National Social Security Fund</option><option value='NTSA'>NTSA - National Transport Safety Authority</option><option value='NYAMIRACOUNTY'>NYAMIRACOUNTY - NYAMIRA County Government</option><option value='NYANDARUACOUNTY'>NYANDARUACOUNTY - NYANDARUA County Government</option><option value='NYERICOUNTY'>NYERICOUNTY - NYERI County Government</option><option value='ODPC'>ODPC - Office of the Data Protection Commissioner</option><option value='OMBUDSMAN'>OMBUDSMAN - The Commission on Administrative Justice</option><option value='PENSIONS'>PENSIONS - The National Treasury</option><option value='POSTA'>POSTA - Postal Corporation of Kenya</option><option value='PRISONS'>PRISONS - Kenya Prisons Service</option><option value='RED-CROSS'>RED-CROSS - Kenya Red Cross</option><option value='SAMBURUCOUNTY'>SAMBURUCOUNTY - SAMBURU County Government</option><option value='SDPS'>SDPS - State Department of Public Service</option><option value='SIAYACOUNTY'>SIAYACOUNTY - SIAYA County Government</option><option value='TAITATAVETACOUNTY'>TAITATAVETACOUNTY - TAITA TAVETA County Government</option><option value='TANARIVERCOUNTY'>TANARIVERCOUNTY - TANA RIVER County Government</option><option value='THARAKANITHICOUNTY'>THARAKANITHICOUNTY - THARAKA NITHI County Government</option><option value='TURKANACOUNTY'>TURKANACOUNTY - TURKANA County Government</option><option value='UASINGISHUCOUNTY'>UASINGISHUCOUNTY - UASIN GISHU County Government</option><option value='UFAA'>UFAA - Unclaimed Financial Assets Authority</option><option value='VCT'>VCT - Voluntary Counseling and Testing.</option><option value='VIHIGACOUNTY'>VIHIGACOUNTY - VIHIGA County Government</option><option value='WAJIRCOUNTY'>WAJIRCOUNTY - WAJIR County Government</option><option value='WESTPOKOTCOUNTY'>WESTPOKOTCOUNTY - WEST POKOT County Government</option><option value='YEDF'>YEDF - Youth Enterprise Development Fund</option>							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="column1">
+						<div class="form-group" style="padding-left:15px; padding-right:15px;">
+							<button type="submit" id="btn-submit" name="btn-submit" class="btn btn-success btn-block">Submit</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+	// Get the modal
+	var modal = document.getElementById("myModal2");
+
+	// Get the button that opens the modal
+	var btn = document.getElementById("myBtn2");
+
+	// When the user clicks the button, open the modal 
+	btn.onclick = function() {
+	  modal.style.display = "block";
+	}
+
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	  if (event.target == modal) {
+		modal.style.display = "none";
+	  }
+	}
+</script>
+<script>
+	//document.getElementById("myModal").style.display = "none";
+</script>
+</center>
+		 <!--<hr style="max-width:960px;margin:0 auto; background-color: #006600;">
+		<div style="height: 760px; background-image:url('images/main-background-2.jpg');">-->
+		<div style="background-image:url('images/main-background-2.jpg');">
+			<div class="title_wrapper" style="max-width:960px; text-align: left;"><h3><b>Welcome BANCY NGATIA,</b></h3>					
+					<!--<div class="alert" id="closenoticebtn" style="margin: auto;">
+						<span class="closenoticebtn" onclick='hidenotice("300314:vt8p0n66aq45ncv5au4hrqeo9s:queue");'>&times;</span>  
+						You are allowed to have only one active session at a time.
+					</div>-->								<div class="alert" id="closenoticebtn" style="text-align: left;">
+									<span class="closenoticebtn" onclick='hidenotice("300314:vt8p0n66aq45ncv5au4hrqeo9s:queue");'>&times;</span>  
+									May/June Theme: Prioritize Mental Health.
+								</div>			</div>
+						<div class="title_wrapper">
+									<!--<meta http-equiv="refresh" content="30">-->
+					<div class="title" style="border-radius: 5px; border-style: dotted; border-color: #BB0000; text-align:left">
+						<h3>
+							<a href="home.php?uid=300314">
+								&nbsp;&nbsp;<img src="images/home.png" width="20px" height="20px" style="vertical-align: middle;" />
+							</a>															<a href="manageappointment.php?uid=300314&action=manual">
+									&nbsp;&nbsp;<img src="images/manual.png" width="28px" height="22px" style="vertical-align: middle;" />
+								</a>							&nbsp;&nbsp;>>&nbsp;&nbsp;<b>UASIN GISHU HUDUMA CENTRE : QUEUE FOR DIRECTORATE OF CRIMINAL INVESTIGATIONS</b>
+						</h3>
+					</div>
+					<div style='padding-top: 10px;'>							<button type="submit" id="list" class="btn btn-success btn-lg" style="background:linear-gradient(#ec1c24,#bf1e2e); #fff !important; padding: 10px 12px; font-family: Gentona,sans-serif; font-size:14px; font-weight: 700;" onclick="window.location.replace('manageappointment.php?uid=300314&action=queue');" style="color:green; ">Queued Customers</button>
+							<button type="submit" id="list" class="btn btn-success btn-lg" style="#fff !important; line-height: 1.12857143; padding: 10px 12px; font-family: Gentona,sans-serif; font-size:14px; font-weight: 700;" onclick="window.location.replace('manageappointment.php?uid=300314&action=list&init=1');"style="color:green; ">Customer Visits</button>									<button type="submit" id="list" class="btn btn-success btn-lg" style="#fff !important; line-height: 1.12857143; padding: 10px 12px; font-family: Gentona,sans-serif; font-size:14px; font-weight: 700;" onclick="window.location.replace('manageappointment.php?uid=300314&action=track');" style="color:green; ">Track Document</button>					</div>
+					<div style='text-align:left; padding:0 0 0 20px;'><script>
+	function startservice(uid, tid)
+	{
+		if (confirm("Start serving the customer?")) {
+			window.open('startservice.php?uid='+uid+'&tid='+tid+'','_self');
+		}
+		exit;
+	}
+	
+	function endservice(uid, tid)
+	{	
+		if (document.getElementById('issuancetype').checked) {
+			issued=1;
+		} else {
+			issued=0;
+		}
+		//if (confirm("Service completed?")) {
+			window.open('endservice.php?uid='+uid+'&tid='+tid+'&issued='+issued+'','_self');
+		//}
+		exit;
+	}
+		
+	function addtocallqueue(uid, tid)
+	{
+		window.open('addtocallqueue.php?uid='+uid+'&tid='+tid+'','_self');
+	}
+	 
+	function confirmdelete(uid, tnum)
+	{	
+		if (confirm("Do you really want to cancel this appointment?")) {
+			window.open('deleteticketadmin.php?uid='+uid+'&tid='+tnum+'','_self');
+		}
+		exit;
+	}
+	
+	function cancel(uid, tid) {
+		var reason = document.getElementById('reason').value;
+		if(reason=="") {
+			alert("Select reason for cancellation.");
+		} else {
+			if (confirm("Do you really want to cancel this appointment?")) {
+				window.open('deleteticketadmin.php?uid='+uid+'&tid='+tid+'&reason='+reason+'','_self');
+			} else {
+				modal.style.display = "none";
+			}
+		}
+		exit;
+	}
+</script>
+<p>
+<div class="row">
+	<br><br><br><font style='font-size:12px; font-weight:bold; color: #BCE954;'>The queue is empty for now.</font><br><br><a href='manageappointment.php?uid=300314&action=queue'><img src='images/reset.jpg' width='50px' height='20px' /></a></div>
+<link rel="stylesheet" type="text/css" media="all" href="css/modal.css" title="win2k-cold-1" />
+<!-- The Modal -->
+<div id="myModal" class="modal">
+	<!-- Modal content -->
+	<div class="modal-content">			<div class="modal-body">
+				<div class="modal-header" colspan="5" style="color: #ffffff; background:linear-gradient(#ec1c24,#bf1e2e);">
+					<span class="close" onclick="modal.style.display = 'none';">&times;</span>
+					<h2 style="border-radius: 5px; color: #ffffff; background:linear-gradient(#ec1c24,#bf1e2e);">CANCEL AN APPOINTMENT</h2>
+				</div>
+				<div class="row">
+					<div class="column1"><input type="hidden" id="mdacode" name="mdacode" value="DCI">
+						<div class="form-group">
+							<label>Reason for Cancellation</label>					
+							<select id="reason" name="reason" class="form-control" >	
+								<option value='Wrong booking'>Wrong booking</option>
+								<option value='Customer Non-responsive'>Customer Non-responsive</option>
+								<option value='Document Unavailable'>Document Unavailable</option>
+								<option value='Customer Missing Key Requirements'>Customer Missing Key Requirements</option>
+								<option value='Fingerprint Mismatch'>Fingerprint Mismatch</option>
+								<option value='Missing Fingerprint'>Missing Fingerprint</option>
+								<option value='Bad Quality Fingerprints'>Bad Quality Fingerprints</option>
+								<option value='Back Office Refferal'>Back Office Refferal</option>
+								<option value='Power Outage'>Power Outage</option>
+								<option value='Internet Outage'>Internet Outage</option>
+								<option value='Service Unavailable'>Service Unavailable</option>
+								<option value='Degraded Service'>Degraded Service</option>
+								<option value='Temporary Closure of Centre'>Temporary Closure of Centre</option>
+								<option value='Counter Staff Unavailable'>Counter Staff Unavailable</option>
+								<option value='Cyber Not Operational'>Cyber Not Operational</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<button type="submit" id="btn-submit" name="btn-submit" class="btn btn-success btn-lg btn-login-submit btn-block" onclick="cancel(300314,0);">CANCEL</button>
+						</div>
+					</div>
+				</div>
+			</div>	</div>
+</div>
+<script type="text/javascript">
+	// Get the modal
+	var modal = document.getElementById("myModal");
+	var tid = document.getElementById("tid").value;
+	document.getElementById("myModal2").style.display = "none";
+	
+	// When the user clicks the button, open the modal 
+	if(tid > 0) {
+	  modal.style.display = "block";
+	}
+
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	  if (event.target == modal) {
+		modal.style.display = "none";
+	  }
+	}
+</script>
+</div>				<hr style="background-color:green;">
+							</div>
+		</div>	<div class="row" style="font-size:14px; height:auto; font-weight:bold; float: center; text-align: center; color: #ffffff; border-width: 0px; border-color: #000000; border-style: solid; width: 100%; background-color: #ffffff; background-image: url('images/bg-pattern.png');">
+			Huduma Kenya Secretariat &copy; 2020 - 2024. All rights reserved.<br>
+			Designed by <label style="color:#BCE954;" onclick="javascript:gotosite();">Huduma Kenya Secretariat</label>.<br>
+			<label style="color:#BCE954;" onclick="javascript:getterms();">Terms and Conditions</label>
+	</div>	<script language="javascript">
+		function getterms(){
+			window.open('tnc.php','_blank');
+			exit;
+		}
+		function gotosite(){
+			window.open('https://www.hudumakenya.go.ke/','_blank');
+			exit;
+		}
+	</script>	</body>
+</html>
+
