@@ -189,7 +189,7 @@
 			<li class="last">
 				<a href="javascript:;" onclick="logout(300314);">						<img src="images/avatar.f.png" height="70px" width="70px" style="border-radius: 10px;" title="Click to logout" >				</a>
 			</li>
-			<div style="word-wrap: break-word;">Logged In Time:<br>Thursday, 16th May 2024 08:25:19 hrs</div>
+			<div style="word-wrap: break-word;">Logged In Time:<br>Thursday, 16th May 2024 14:56:32 hrs</div>
 		  	                <a href="javascript:void(0);" style="color:#ffffff;" onclick="mashinanimode(300314)"><u>Mashinani</u></a>    	<a href="javascript:;" onclick="logout(300314);" style="color:#ffffff;"><u><b>Logout</b></u></a>
 		</div>
 	</div>
@@ -344,7 +344,304 @@
 </script>
 <p>
 <div class="row">
-	<br><br><br><font style='font-size:12px; font-weight:bold; color: #BCE954;'>The queue is empty for now.</font><br><br><a href='manageappointment.php?uid=300314&action=queue'><img src='images/reset.jpg' width='50px' height='20px' /></a></div>
+	<p><input type="hidden" id="tid" name="tid" value="0">
+		<div style="width:auto;overflow:scroll;padding:5px;">
+			<form name="filterqueue" id="filterqueue" action="validatedetails.php" method="post">
+				<input type="hidden" name="frmvalue" value="filterqueue">
+				<input type="hidden" value="300314" name="userid">
+				<input type="hidden" value="queue" name="action">
+				<input type="hidden" value="BANCY.NGATIA" name="username">
+				<table border=1 align=left rules=cols bordercolordark="#FF99CC" style="font-size:12px; color:#111111; border-width: 1px; border-color: #000000; border-style: solid;">
+					<tr bgcolor=#FFFFFF>
+						<td nowrap>&nbsp;</td>
+						<td align=left colspan="1">
+							<font style="font-size:12px; font-weight:bold; color: #000000; border-width: 0px; border-color: #000000; border-style: solid;">82 Appointments</font>
+						</td>
+						<td colspan=18 align=left>
+							<!--<a href="downloaddoc.php?uid=300314&type=excel&qryid=&level=1"><img src="images/excel.png" alt="Download filtered data in EXCEL format" height="17px" width="17px"></a>&nbsp;-->
+							<a href="manageappointment.php?uid=300314&action=queue"><img src="images/reset.jpg" width="50px" height="20px" /></a>&nbsp;
+							<input type="image" src="images/filter.png" width="50px" height="20px" alt="Submit">&nbsp;
+						</td>
+					</tr>
+					<tr>
+						<td nowrap><strong>&nbsp;</strong></td>
+						<td nowrap><strong>BOOKING NO.</strong></td>
+						<td nowrap><strong>CUSTOMER<br>(QUEUE) NO.</strong></td>
+						<td nowrap><strong>SERVICE NAME</strong></td>
+						<td nowrap><strong>FIRST NAME</strong></td>
+						<td nowrap><strong>LAST NAME</strong></td>
+						<td nowrap><strong>QUEUED TIME</strong></td>
+						<td nowrap><strong>CHANNEL</strong></td>
+						<td nowrap><strong>STATUS</strong></td>
+						<td nowrap><strong>STAGE</strong></td>						<td nowrap><strong>ISSUE DATE</strong></td>
+						<td nowrap><strong>STARTED BY</strong></td>
+					</tr>								
+					<tr>
+						<td nowrap>&nbsp;</td>
+						<td nowrap><input type="text" name="serialnum" autofocus size=15 STYLE="background-color: #FFFFFF;"></td>
+						<td nowrap>&nbsp;</td>
+						<td nowrap><input type="text" name="servicename" size=12 STYLE="background-color: #FFFFFF;"></td>
+						<td nowrap><input type="text" name="fname" size=12 STYLE="background-color: #FFFFFF;"></td>
+						<td nowrap><input type="text" name="lname" size=12 STYLE="background-color: #FFFFFF;"></td>
+						<td nowrap>
+							<input type="text" id="queueddate" placeholder="YYYY-MM-DD" name="queueddate" size="9" STYLE="background-color: #FFFFFF;" class="input-text" value="2024-05-16" onchange="" />
+							<img src="images/calendah.gif" id="start_trigger_a" style="cursor: pointer; border: 1px solid red;" title="Select a date that you want to analyze" onmouseover="this.style.background='red';" onMouseOut="this.style.background=''" />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<script type="text/javascript">
+								function catcalc(cal) {
+									var date = cal.date;
+									var time = date.getTime()
+									// use the _other_ field
+									var field = document.getElementById("f_calcdate");
+									if (field == cal.params.inputField) {
+										field = document.getElementById("f_date_a");
+										time -= Date.WEEK; // substract one week
+									} else {
+										time += Date.WEEK; // add one week
+									}
+									var date2 = new Date(time);
+									field.value = date2.print("%Y-%m-%d %H:%M");
+									//alert('In');
+								}
+							</script>
+							<script type="text/javascript">
+								Calendar.setup({
+									inputField     :    "appointmentdate",     // id of the input field
+									ifFormat       :    "%Y-%m-%d",      // format of the input field
+									button         :    "start_trigger_a",  // trigger for the calendar (button ID)
+									align          :    "Tl",           // alignment (defaults to "Bl")
+									singleClick    :    true
+								});
+							</script>
+						</td>
+						<td nowrap>
+							<select id="type" name="type">
+								<option value="">&nbsp;</option>
+								<option value="online-booking">Online Booking</option>
+								<option value="walkin-booking">Walk-In Booking</option>
+								<option value="walk-in">Walk-In (Express)</option>
+								<option value="cc-booking">Contact Centre Booking</option>
+							</select>
+						</td>
+						<td nowrap>
+							<select id="status" name="status">
+								<option value="">&nbsp;</option>
+								<option value="1">Active</option>
+								<option value="0">Cancelled</option>
+								<option value="2">Completed</option>
+							</select>
+						</td>
+						<td nowrap>&nbsp;</td>						<td nowrap>
+							<input type="text" id="issuedate" placeholder="YYYY-MM-DD" name="issuedate" size=9 STYLE="background-color: #FFFFFF;" class="input-text" onchange="" />
+							<img src="images/calendah.gif" id="start_trigger_b" style="cursor: pointer; border: 1px solid red;" title="Select a date that you want to analyze" onmouseover="this.style.background='red';" onMouseOut="this.style.background=''" />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<script type="text/javascript">
+								function catcalc(cal) {
+									var date = cal.date;
+									var time = date.getTime()
+									// use the _other_ field
+									var field = document.getElementById("f_calcdate");
+									if (field == cal.params.inputField) {
+										field = document.getElementById("f_date_a");
+										time -= Date.WEEK; // substract one week
+									} else {
+										time += Date.WEEK; // add one week
+									}
+									var date2 = new Date(time);
+									field.value = date2.print("%Y-%m-%d %H:%M");
+									//alert('In');
+								}
+							</script>
+							<script type="text/javascript">
+								Calendar.setup({
+									inputField     :    "issuedate",     // id of the input field
+									ifFormat       :    "%Y-%m-%d",      // format of the input field
+									button         :    "start_trigger_b",  // trigger for the calendar (button ID)
+									align          :    "Tl",           // alignment (defaults to "Bl")
+									singleClick    :    true
+								});
+							</script>
+						</td>
+						<td nowrap><input type="text" name="servicestartedby" size="8" STYLE="background-color: #FFFFFF;"></td>
+					</tr>
+												<tr bgcolor=#DFDBA0>
+								<td nowrap>
+																				<i class="material-icons" style="font-size: 15px; cursor: pointer; color: #D70A0A;" onclick="addtocallqueue(300314,11854531);">phone_in_talk</i>
+											<i class="material-icons" style="font-size: 15px; cursor: pointer; color: #D70A0A;" onclick="startservice(300314,11854531);">pause</i>
+																		</td>
+								<td nowrap><a href="manageappointment.php?uid=300314&action=view&id=11854531">049-046-060</a></td>
+								<td nowrap>060</td>
+								<td nowrap>DCI - Police Clearance</td>
+								<td nowrap>MICHAEL</td>
+								<td nowrap>NULL</td>
+								<td nowrap>2024-05-16 11:32:59</td>
+								<td nowrap>walk-in</td>
+								<td nowrap>Active</td>
+																<td nowrap>Queued</td>								<td nowrap>2024-05-16 11:32:59</td>
+								<td nowrap><i><font color='orange'>not started</font></i></td>
+							</tr>
+														<tr bgcolor=#ADA96E>
+								<td nowrap>
+																				<i class="material-icons" style="font-size: 15px; cursor: pointer; color: #D70A0A;" onclick="addtocallqueue(300314,11854602);">phone_in_talk</i>
+											<i class="material-icons" style="font-size: 15px; cursor: pointer; color: #D70A0A;" onclick="startservice(300314,11854602);">pause</i>
+																		</td>
+								<td nowrap><a href="manageappointment.php?uid=300314&action=view&id=11854602">049-046-061</a></td>
+								<td nowrap>061</td>
+								<td nowrap>DCI - Police Clearance</td>
+								<td nowrap>YVETTE</td>
+								<td nowrap>NULL</td>
+								<td nowrap>2024-05-16 11:34:13</td>
+								<td nowrap>walk-in</td>
+								<td nowrap>Active</td>
+																<td nowrap>Queued</td>								<td nowrap>2024-05-16 11:34:13</td>
+								<td nowrap><i><font color='orange'>not started</font></i></td>
+							</tr>
+														<tr bgcolor=#DFDBA0>
+								<td nowrap>
+																				<i class="material-icons" style="font-size: 15px; cursor: pointer; color: #D70A0A;" onclick="addtocallqueue(300314,11854687);">phone_in_talk</i>
+											<i class="material-icons" style="font-size: 15px; cursor: pointer; color: #D70A0A;" onclick="startservice(300314,11854687);">pause</i>
+																		</td>
+								<td nowrap><a href="manageappointment.php?uid=300314&action=view&id=11854687">049-046-062</a></td>
+								<td nowrap>062</td>
+								<td nowrap>DCI - Police Clearance</td>
+								<td nowrap>EVERLYNE</td>
+								<td nowrap>NULL</td>
+								<td nowrap>2024-05-16 11:35:51</td>
+								<td nowrap>walk-in</td>
+								<td nowrap>Active</td>
+																<td nowrap>Queued</td>								<td nowrap>2024-05-16 11:35:51</td>
+								<td nowrap><i><font color='orange'>not started</font></i></td>
+							</tr>
+														<tr bgcolor=#ADA96E>
+								<td nowrap>
+																				<i class="material-icons" style="font-size: 15px; cursor: pointer; color: #D70A0A;" onclick="addtocallqueue(300314,11855011);">phone_in_talk</i>
+											<i class="material-icons" style="font-size: 15px; cursor: pointer; color: #D70A0A;" onclick="startservice(300314,11855011);">pause</i>
+																		</td>
+								<td nowrap><a href="manageappointment.php?uid=300314&action=view&id=11855011">049-046-063</a></td>
+								<td nowrap>063</td>
+								<td nowrap>DCI - Police Clearance</td>
+								<td nowrap>MAURINE</td>
+								<td nowrap>CHERUGUT</td>
+								<td nowrap>2024-05-16 11:43:22</td>
+								<td nowrap>walk-in</td>
+								<td nowrap>Active</td>
+																<td nowrap>Queued</td>								<td nowrap>2024-05-16 11:43:22</td>
+								<td nowrap><i><font color='orange'>not started</font></i></td>
+							</tr>
+														<tr bgcolor=#DFDBA0>
+								<td nowrap>
+																				<i class="material-icons" style="font-size: 15px; cursor: pointer; color: #D70A0A;" onclick="addtocallqueue(300314,11855080);">phone_in_talk</i>
+											<i class="material-icons" style="font-size: 15px; cursor: pointer; color: #D70A0A;" onclick="startservice(300314,11855080);">pause</i>
+																		</td>
+								<td nowrap><a href="manageappointment.php?uid=300314&action=view&id=11855080">049-046-064</a></td>
+								<td nowrap>064</td>
+								<td nowrap>DCI - Police Clearance</td>
+								<td nowrap>BENSON</td>
+								<td nowrap>NULL</td>
+								<td nowrap>2024-05-16 11:44:45</td>
+								<td nowrap>walk-in</td>
+								<td nowrap>Active</td>
+																<td nowrap>Queued</td>								<td nowrap>2024-05-16 11:44:45</td>
+								<td nowrap><i><font color='orange'>not started</font></i></td>
+							</tr>
+														<tr bgcolor=#ADA96E>
+								<td nowrap>
+																				<i class="material-icons" style="font-size: 15px; cursor: pointer; color: #D70A0A;" onclick="addtocallqueue(300314,11855139);">phone_in_talk</i>
+											<i class="material-icons" style="font-size: 15px; cursor: pointer; color: #D70A0A;" onclick="startservice(300314,11855139);">pause</i>
+																		</td>
+								<td nowrap><a href="manageappointment.php?uid=300314&action=view&id=11855139">049-046-065</a></td>
+								<td nowrap>065</td>
+								<td nowrap>DCI - Police Clearance</td>
+								<td nowrap>DAVID</td>
+								<td nowrap>MUBURI</td>
+								<td nowrap>2024-05-16 11:45:41</td>
+								<td nowrap>walk-in</td>
+								<td nowrap>Active</td>
+																<td nowrap>Queued</td>								<td nowrap>2024-05-16 11:45:41</td>
+								<td nowrap><i><font color='orange'>not started</font></i></td>
+							</tr>
+														<tr bgcolor=#DFDBA0>
+								<td nowrap>
+																				<i class="material-icons" style="font-size: 15px; cursor: pointer; color: #D70A0A;" onclick="addtocallqueue(300314,11855535);">phone_in_talk</i>
+											<i class="material-icons" style="font-size: 15px; cursor: pointer; color: #D70A0A;" onclick="startservice(300314,11855535);">pause</i>
+																		</td>
+								<td nowrap><a href="manageappointment.php?uid=300314&action=view&id=11855535">049-046-066</a></td>
+								<td nowrap>066</td>
+								<td nowrap>DCI - Police Clearance</td>
+								<td nowrap>JOHN</td>
+								<td nowrap>NGUGI</td>
+								<td nowrap>2024-05-16 11:53:22</td>
+								<td nowrap>walk-in</td>
+								<td nowrap>Active</td>
+																<td nowrap>Queued</td>								<td nowrap>2024-05-16 11:53:22</td>
+								<td nowrap><i><font color='orange'>not started</font></i></td>
+							</tr>
+														<tr bgcolor=#ADA96E>
+								<td nowrap>
+																				<i class="material-icons" style="font-size: 15px; cursor: pointer; color: #D70A0A;" onclick="addtocallqueue(300314,11855712);">phone_in_talk</i>
+											<i class="material-icons" style="font-size: 15px; cursor: pointer; color: #D70A0A;" onclick="startservice(300314,11855712);">pause</i>
+																		</td>
+								<td nowrap><a href="manageappointment.php?uid=300314&action=view&id=11855712">049-046-067</a></td>
+								<td nowrap>067</td>
+								<td nowrap>DCI - Police Clearance</td>
+								<td nowrap>SHARON</td>
+								<td nowrap>NULL</td>
+								<td nowrap>2024-05-16 11:56:48</td>
+								<td nowrap>walk-in</td>
+								<td nowrap>Active</td>
+																<td nowrap>Queued</td>								<td nowrap>2024-05-16 11:56:48</td>
+								<td nowrap><i><font color='orange'>not started</font></i></td>
+							</tr>
+														<tr bgcolor=#DFDBA0>
+								<td nowrap>
+																				<i class="material-icons" style="font-size: 15px; cursor: pointer; color: #D70A0A;" onclick="addtocallqueue(300314,11855849);">phone_in_talk</i>
+											<i class="material-icons" style="font-size: 15px; cursor: pointer; color: #D70A0A;" onclick="startservice(300314,11855849);">pause</i>
+																		</td>
+								<td nowrap><a href="manageappointment.php?uid=300314&action=view&id=11855849">049-046-068</a></td>
+								<td nowrap>068</td>
+								<td nowrap>DCI - Police Clearance</td>
+								<td nowrap>TIMOTHY</td>
+								<td nowrap>NULL</td>
+								<td nowrap>2024-05-16 11:59:14</td>
+								<td nowrap>walk-in</td>
+								<td nowrap>Active</td>
+																<td nowrap>Queued</td>								<td nowrap>2024-05-16 11:59:14</td>
+								<td nowrap><i><font color='orange'>not started</font></i></td>
+							</tr>
+														<tr bgcolor=#ADA96E>
+								<td nowrap>
+																				<i class="material-icons" style="font-size: 15px; cursor: pointer; color: #D70A0A;" onclick="addtocallqueue(300314,11855973);">phone_in_talk</i>
+											<i class="material-icons" style="font-size: 15px; cursor: pointer; color: #D70A0A;" onclick="startservice(300314,11855973);">pause</i>
+																		</td>
+								<td nowrap><a href="manageappointment.php?uid=300314&action=view&id=11855973">049-046-069</a></td>
+								<td nowrap>069</td>
+								<td nowrap>DCI - Police Clearance</td>
+								<td nowrap>MOHAMMED</td>
+								<td nowrap>ABEY</td>
+								<td nowrap>2024-05-16 12:01:08</td>
+								<td nowrap>walk-in</td>
+								<td nowrap>Active</td>
+																<td nowrap>Queued</td>								<td nowrap>2024-05-16 12:01:08</td>
+								<td nowrap><i><font color='orange'>not started</font></i></td>
+							</tr>
+												<tr bgcolor="#FFFFFF" style="font-size:10px">
+						<td nowrap>&nbsp;</td>
+						<td colspan=20 align=left>
+							<b> 1</b> | 												<a href="manageappointment.php?uid=300314&action=queue&qryid=&page=2"> 2 </a> | 
+																							<a href="manageappointment.php?uid=300314&action=queue&qryid=&page=3"> 3 </a> | 
+																							<a href="manageappointment.php?uid=300314&action=queue&qryid=&page=4"> 4 </a> | 
+																							<a href="manageappointment.php?uid=300314&action=queue&qryid=&page=5"> 5 </a> | 
+																							<a href="manageappointment.php?uid=300314&action=queue&qryid=&page=6"> 6 </a> | 
+																							<a href="manageappointment.php?uid=300314&action=queue&qryid=&page=7"> 7 </a> | 
+																							<a href="manageappointment.php?uid=300314&action=queue&qryid=&page=8"> 8 </a> | 
+																							<a href="manageappointment.php?uid=300314&action=queue&qryid=&page=9"> 9 </a> | 
+																				<a href="manageappointment.php?uid=300314&action=queue&qryid=&page=2"><b>Next</b></a> | 
+									<a href="manageappointment.php?uid=300314&action=queue&qryid=&page=9"><b>&gt; &gt;</b></a> 						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
 <link rel="stylesheet" type="text/css" media="all" href="css/modal.css" title="win2k-cold-1" />
 <!-- The Modal -->
 <div id="myModal" class="modal">
